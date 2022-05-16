@@ -53,25 +53,37 @@
                                     <input type="number" name="inputaxillary" class="form-control form-control-user" id="exampleAxillary"
                                         placeholder="Axillary">
                                 </div>
+                                <div>
+                                    <input type="number" name="inputk" class="form-control form-control-user" id="exampleK" placeholder="Parameter K" >
+                                </div>
+                                <br>
 
-                               <input type="submit" class="btn btn-primary btn-user btn-block" id="btn01" name="hitung" value="Hitung">
+                               <input type="submit" class="btn btn-primary btn-user btn-block" name="hitung" value="Hitung">
                                 <br>
                                 
                             </form>
 
-                            <script type="text/javascript">
-                                document.getElementById("btn01").addEventListener("click", function(){
-                                    document.getElementById("table01").style.display = "block";
-                                });
-                            </script>
+                            
 
-                            <?php
                            
-                             class Euc{
+       
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+                                <?php
+
+                                    if (isset($_POST['hitung'])) {
+                                        // code...
+                                         class Euc{
                                                 public $id_datatraining, $age, $year, $axillary, $survival_status;
                                                 public $eucledian;
                                                 public $rank;
                                             }
+                                    
+                           
+                            
 
                                             $get_data = mysqli_query($conn, "select * from data_training");
 
@@ -107,13 +119,7 @@
 
                                             }
                             ?>
-       
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" id="table01" style="visibility: none;">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" id="table01" >
                                     <thead>
                                         <tr>
                                             <th>Nomor</th>
@@ -170,14 +176,7 @@
                                 </table>
 
                                 <div>
-                                    <?php
                                     
-                                    
-                                    for($i=0; $i<3; $i++){
-                                        $data = $array22[$i];
-                                        $data->rank = 1+$i;
-                                        
-                                     ?>
                                      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                         <thead>
                                             <tr>
@@ -190,6 +189,14 @@
                                                 <th>Ranking</th>
                                             </tr>
                                         </thead>
+                                        <?php
+                                    
+                                    
+                                    for($i=0; $i<$_GET['inputk']; $i++){
+                                        $data = $array22[$i];
+                                        $data->rank = 1+$i;
+                                        
+                                     ?>
                                         <tbody>
                                             <tr>
                                             <td><?php echo $data->id_datatraining ?></td>
@@ -204,14 +211,9 @@
                                             <td><?php echo $data->euclidean ?></td>
                                             <td><?php echo $data->rank ?></td>
                                             </tr>
-                                        </tbody>
-                                    </table>
-
-
-
-                                     <?php 
+                                            <?php 
                                         }
-                                        $arrayTelu = array_slice($array22, 0, 3);
+                                        $arrayTelu = array_slice($array22, 0, $_GET['inputk']);
                                         $mati = array_filter($arrayTelu, function ($arrayItem) { 
                                         return $arrayItem->survival_status == 2;
                                         });
@@ -220,6 +222,12 @@
                                         });
  
                                      ?>
+                                        </tbody>
+                                    </table>
+
+
+
+                                     
 
                                      <p>Mati = <?php  echo sizeof($mati);
                                       ?></p>
@@ -227,14 +235,14 @@
                                       ?></p>
 
                                       <?php
-                                        echo "Berdasarkan perhitungan, dengan age = ".$_GET['inputage'].", year = ".$_GET['inputyear'].", axillary = ".$_GET['inputaxillary'].", maka hasilnya: ";
+                                        echo "Berdasarkan perhitungan, dengan age = ".$_GET['inputage'].", year = ".$_GET['inputyear'].", axillary = ".$_GET['inputaxillary'].", parameter K = ".$_GET['inputk'].", maka hasilnya: ";
                                       if (sizeof($mati) > sizeof($urip)) {
                                           // code...
                                         echo "<b>Maka Hasilnya Died within 5 Years</b>";
                                       }else {
                                         echo "<b>Maka Hasilnya Survived 5 Years or Longer</b>";
                                       }
-
+}
                                         ?>
                                 </div>
                          
@@ -251,6 +259,12 @@
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
+
+<!--     <script>
+                                document.getElementById("btn01").addEventListener("click", function(){
+                                    document.getElementById("table01").style.display = "block";
+                                });
+                            </script> -->
 
 </body>
 
