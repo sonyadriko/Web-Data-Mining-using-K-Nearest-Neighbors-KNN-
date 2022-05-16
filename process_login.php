@@ -2,7 +2,7 @@
 
 	include 'koneksi.php';
 
-	//session_start();
+	session_start();
 	
 	if (isset($_POST['login'])) {
 		// code...
@@ -10,7 +10,7 @@
 		$password = (md5($_POST['password']));
 
 		$query2 = "SELECT * FROM user WHERE username = '$username' AND password = '$password'";
-		$result = $connect->query($query2);
+		$result = $conn->query($query2);
 
 		if ($result->num_rows == 0){
 			echo "User tidak ada!";

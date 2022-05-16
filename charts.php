@@ -54,10 +54,17 @@
                                         placeholder="Axillary">
                                 </div>
 
-                               <input type="submit" class="btn btn-primary btn-user btn-block" name="hitung" value="Hitung">
+                               <input type="submit" class="btn btn-primary btn-user btn-block" id="btn01" name="hitung" value="Hitung">
                                 <br>
                                 
                             </form>
+
+                            <script type="text/javascript">
+                                document.getElementById("btn01").addEventListener("click", function(){
+                                    document.getElementById("table01").style.display = "block";
+                                });
+                            </script>
+
                             <?php
                            
                              class Euc{
@@ -106,7 +113,7 @@
                 </div>
             </div>
         </div>
-                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" id="table01" style="visibility: none;">
                                     <thead>
                                         <tr>
                                             <th>Nomor</th>

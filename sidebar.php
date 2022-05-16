@@ -34,7 +34,7 @@
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="tables.php">
+                <a class="nav-link" href="data_training.php">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Data Training</span></a>
             </li>

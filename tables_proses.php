@@ -85,8 +85,8 @@
                                                         <td><input type="number" name="inputaxillary" class="form-control form-control-user" id="exampleAxillary" style="-moz-appearance: textfield; "></td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Axillary : </td>
-                                                        <td><input type="number" name="inputaxillary" class="form-control form-control-user" id="exampleAxillary" style="-moz-appearance: textfield; "></td>
+                                                        <td>Parameter K : </td>
+                                                        <td><input type="number" name="inputk" class="form-control form-control-user" id="exampleK" style="-moz-appearance: textfield; "></td>
                                                     </tr>
                                                     <tr>
                                                         <td></td>

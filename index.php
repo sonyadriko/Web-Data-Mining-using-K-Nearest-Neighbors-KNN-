@@ -2,7 +2,8 @@
     include 'koneksi.php';
 
 
-?><!DOCTYPE html>
+?>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
