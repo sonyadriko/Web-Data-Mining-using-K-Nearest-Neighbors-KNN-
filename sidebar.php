@@ -41,7 +41,7 @@
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="tables.php">
+                <a class="nav-link" href="atribut.php">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Artibut</span></a>
             </li>

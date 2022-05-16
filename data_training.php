@@ -2,6 +2,42 @@
 
     include 'koneksi.php';
 
+    // class Euc{
+    //                                             public $id_datatraining, $age, $year, $axillary, $survival_status;
+    //                                             public $eucledian;
+    //                                             public $rank;
+    //                                         }
+
+                                           
+
+                                            // $rank = 0;
+                                            // $last_score = false;
+                                            // $rows = 0;
+                                            // $array22=array();
+                                            // $i = 0;
+
+                                            // while ($display=mysqli_fetch_array($get_data)) {
+                                            //     // code...
+                                            //     $id_atribut = $display['id_atribut'];
+                                            //     $nama_atribut = $display['nama_atribut'];
+                                            //     $status_atribut = $display['status_atribut'];
+                                            //     $nilai = $display['nilai'];
+                                            //     $keterangan = $display['keterangan'];
+                                               
+                                                // $output = sqrt($a2+$b2+$c2);
+                                                // $eucli = new Euc();
+                                                // $eucli->id_datatraining = $id_datatraining;
+                                                // $eucli->age = $age;
+                                                // $eucli->year = $year;
+                                                // $eucli->axillary = $axillary;
+                                                // $eucli->survival_status = $survival_status;
+                                                // $eucli->euclidean = $output;
+                                                // $array22[$i] = $eucli;
+                                                // $i++;
+
+                                            //}
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +50,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Tables</title>
+    <title>SB Admin 2 - Data Training</title>
 
     <!-- Custom fonts for this template -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -27,12 +63,6 @@
 
     <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-
-    <style type="text/css">
-        .inputage {
-             list-style: none;
-        }
-    </style>
 
 </head>
 
@@ -49,61 +79,25 @@
             <!-- Main Content -->
             <div id="content">
 
-              <?php include 'topbar.php'; ?>
+            <?php include 'topbar.php'; ?>
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Perhitungan KNN</h1>
-                  <!--   <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
+                   <!--  <h1 class="h3 mb-2 text-gray-800">Tables</h1>
+                    <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
                         For more information about DataTables, please visit the <a target="_blank"
-                            href="https://datatables.net">official DataTables documentation</a>.</p>
- -->
+                            href="https://datatables.net">official DataTables documentation</a>.</p> -->
+
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Data yang diketahui atau data testing</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Atribut</h6>
                         </div>
                         <div class="card-body">
-                            <div class="row justify-content-center">
-                                <div class="col-xl-4 col-lg-12 col-md-9">
-                                    <div class="col-lg-12">
-                                        <div class="p-5">
-                                            <form method="GET" action="#">
-                                                <table border="0" cellpadding="10" cellspacing="0">
-                                                    <tr>
-                                                        <td>Age : </td>
-                                                        <td><input type="number" name="inputage" class="form-control form-control-user" id="exampleAge" style="-moz-appearance: textfield; "></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Year : </td>
-                                                        <td><input type="number" name="inputyear" class="form-control form-control-user" id="exampleYear" style="-moz-appearance: textfield;"></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Axillary : </td>
-                                                        <td><input type="number" name="inputaxillary" class="form-control form-control-user" id="exampleAxillary" style="-moz-appearance: textfield; "></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Axillary : </td>
-                                                        <td><input type="number" name="inputaxillary" class="form-control form-control-user" id="exampleAxillary" style="-moz-appearance: textfield; "></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td></td>
-                                                        <td><input type="submit" class="btn btn-primary btn-user btn-block" name="hitung" value="Hitung"></td>
-                                                    </tr>
-                                                </table>
-                                               
-                                                <br>
-                                                
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
                             <div class="table-responsive">
-                                <!--<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
                                             <th>Nomor</th>
@@ -111,39 +105,67 @@
                                             <th>Year</th>
                                             <th>Axillary</th>
                                             <th>Survival Status</th>
-                                            <th>Euclidean</th>
-                                            <th>Ranking</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php
-                                            $nomor = 1;
 
-                                            $get_data = mysqli_query($conn, "select * from data_training");
+                                        $nomor = 1;
+                                         $get_data = mysqli_query($conn, "select * from data_training");
 
-                                            while ($display=mysqli_fetch_array($get_data)) {
+                                         while ($display=mysqli_fetch_array($get_data)) {
                                                 // code...
                                                 $id_datatraining = $display['id_datatraining'];
                                                 $age = $display['age'];
                                                 $year = $display['year'];
                                                 $axillary = $display['axillary'];
                                                 $survival_status = $display['survival_status'];
-                                            
+                                    
+
+                                           
+
+                                            // usort($array22, function($a, $b)
+                                            // {
+                                            //     return $a->euclidean > $b->euclidean;
+                                            // });
+
+
+                                            // function comparator($object1, $object2){
+                                            //     return $object1->euclidean > $object2->euclidean;
+                                            // }
+
+
+
+                                            // for ($i=0; $i < sizeOf($array22); $i++) {
+
+                                            //     $data = $array22[$i];
+                                            //     $data->rank = 1+$i;
                                         ?>
+
                                         <tr>
                                             <td><?php echo $nomor ?></td>
                                             <td><?php echo $age ?></td>
                                             <td><?php echo $year ?></td>
                                             <td><?php echo $axillary ?></td>
-                                            <td><?php echo $survival_status ?></td>
-                                            <td><?php sqrt(($age-41)^2+($year-65)^2+($axillary-0)^2) ?></td>
+                                            <td><?php if ($survival_status == 1) {
+                                                echo "Survived 5 Years or Longer";
+                                            }else if($survival_status == 2) {
+                                                echo "Died within 5 Years";
+                                            } ?></td>
+                                         
                                         </tr>
                                         <?php
                                             $nomor++;
                                             }
                                         ?>
                                     </tbody>
-                                </table>-->
+                                </table>
+                                <br>
+                                <p><b>Notes</b></p>
+                                <p>Survived 5 Years or Longer = 1</p>
+                                <p>Died within 5 Years = 2</p>
+
+                              
                             </div>
                         </div>
                     </div>
