@@ -78,22 +78,22 @@
                                                 <table border="0" cellpadding="10" cellspacing="0">
                                                     <tr>
                                                         <td>Age : </td>
-                                                        <td><input type="number" name="inputage" class="form-control form-control-user" id="exampleAge" style="-moz-appearance: textfield; "></td>
+                                                        <td><input type="number" name="inputage" class="form-control form-control-user" id="exampleAge" style="-moz-appearance: textfield; " required></td>
                                                     </tr>
                                                     <tr>
                                                         <td>Year : </td>
-                                                        <td><input type="number" name="inputyear" class="form-control form-control-user" id="exampleYear" style="-moz-appearance: textfield;"></td>
+                                                        <td><input type="number" name="inputyear" class="form-control form-control-user" id="exampleYear" style="-moz-appearance: textfield;" required></td>
                                                     </tr>
                                                     <tr>
                                                         <td>Axillary : </td>
-                                                        <td><input type="number" name="inputaxillary" class="form-control form-control-user" id="exampleAxillary" style="-moz-appearance: textfield; "></td>
+                                                        <td><input type="number" name="inputaxillary" class="form-control form-control-user" id="exampleAxillary" style="-moz-appearance: textfield; " required></td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Survival Status : </td>
-                                                        <td><input type="number" name="inputsurv" class="form-control form-control-user" id="exampleK" style="-moz-appearance: textfield; "></td>
+                                                        <td>Survival Status : </td> 
+                                                        <td><input type="number" name="inputsurv" class="form-control form-control-user" id="exampleK" style="-moz-appearance: textfield; " required></td>
                                                     </tr>
                                                     <tr>
-                                                        <td></td>
+                                                        <td><a href="data_training.php" style="text-decoration: none; list-style: none;"><input type="button" class="btn btn-primary btn-user btn-block" name="back" value="Back"></a></td>
                                                         <td><input type="submit" class="btn btn-primary btn-user btn-block" name="submit" value="Tambah"></td>
                                                     </tr>
                                                 </table>
@@ -135,25 +135,9 @@
         <i class="fas fa-angle-up"></i>
     </a>
 
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
+    <?php
+        include 'logout_modal.php';
+    ?>
 
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
@@ -190,7 +174,7 @@
             if ($insertResult) {
                 // code...
                 echo "<script>alert('Berhasil menambah data training.')</script>";
-                header("Location:index.php");
+                // header("Location:index.php");
             }else {
                 var_dump($insertResult);
 
