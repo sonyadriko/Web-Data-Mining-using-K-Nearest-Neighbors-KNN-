@@ -4,7 +4,7 @@
 
     if (!isset($_SESSION['user_id'])) {
         header("Location: login.php");
-    }
+    }   
 
     class Euc{
                                                 public $id_datatraining, $age, $year, $axillary, $survival_status;

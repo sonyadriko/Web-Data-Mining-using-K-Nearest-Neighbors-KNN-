@@ -1,7 +1,7 @@
 <?php
 
     include 'koneksi.php';
-
+ session_start();
     // class Euc{
     //                                             public $id_datatraining, $age, $year, $axillary, $survival_status;
     //                                             public $eucledian;
