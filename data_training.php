@@ -165,7 +165,7 @@
                                                 echo "Died within 5 Years";
                                             } ?></td>
                                             <td >
-                                                <a href='delete_datatraining.php?Del=<?php echo $id_datatraining ?>'><input type='submit' value='Edit' id='editbtn'></a>
+                                                <a href='edit_data_training.php?GetID=<?php echo $id_datatraining ?>'><input type='submit' value='Edit' id='editbtn'></a>
                                                 <a href='delete_datatraining.php?Del=<?php echo $id_datatraining ?>'><input type='submit' value='Delete' id='delbtn'></a>
                                             </td>
                                          
