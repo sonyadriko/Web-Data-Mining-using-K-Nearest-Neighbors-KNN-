@@ -166,7 +166,7 @@
                                             } ?></td>
                                             <td >
                                                 <a href='edit_data_training.php?GetID=<?php echo $id_datatraining ?>'><input type='submit' value='Edit' id='editbtn'></a>
-                                                <a href='delete_datatraining.php?Del=<?php echo $id_datatraining ?>'><input type='submit' value='Delete' id='delbtn'></a>
+                                                <a href='delete_data_training.php?Del=<?php echo $id_datatraining ?>'><input type='submit' value='Delete' id='delbtn'></a>
                                             </td>
                                          
                                         </tr>
