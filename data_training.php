@@ -54,7 +54,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Data Training</title>
+    <title>Data Training</title>
 
     <!-- Custom fonts for this template -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -97,16 +97,15 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Atribut</h6>
+                            <div class="d-sm-flex align-items-center justify-content-between">
+                            <h6 class="m-0 font-weight-bold text-primary">Data Training</h6>
+                            <a href="tambah_data_training.php" style="text-decoration: none; list-style: none;"><input type="button" class="btn btn-primary btn-user" name="adddata" value="Tambah Data"></a>
+                              <!-- <a href="export_excel.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
 
                         </div>
+                    </div>
                         <div class="card-body">
-                            <div class="col-xl-3 col-md-6 mb-4">
-                             <!--     <div class="col mr-2"> -->
-                                <a href="tambah_data_training.php" style="text-decoration: none; list-style: none;"><input type="button" class="btn btn-primary btn-user btn-block" name="adddata" value="Tambah Data"></a>
-                            </div>
-             <!--     </div> -->
-                             <br>   
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
@@ -164,9 +163,9 @@
                                             }else if($survival_status == 2) {
                                                 echo "Died within 5 Years";
                                             } ?></td>
-                                            <td >
-                                                <a href='edit_data_training.php?GetID=<?php echo $id_datatraining ?>'><input type='submit' value='Edit' id='editbtn'></a>
-                                                <a href='delete_data_training.php?Del=<?php echo $id_datatraining ?>'><input type='submit' value='Delete' id='delbtn'></a>
+                                            <td>
+                                                <a href='edit_data_training.php?GetID=<?php echo $id_datatraining ?>' style="text-decoration: none; list-style: none;"><input type='submit' value='Edit' id='editbtn' class="btn btn-primary btn-user" ></a>
+                                                <a href='delete_data_training.php?Del=<?php echo $id_datatraining ?>' style="text-decoration: none; list-style: none;"><input type='submit' value='Delete' id='delbtn' class="btn btn-primary btn-user" ></a>
                                             </td>
                                          
                                         </tr>

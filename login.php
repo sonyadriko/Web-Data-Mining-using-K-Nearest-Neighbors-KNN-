@@ -16,36 +16,53 @@
     <title>SB Admin 2 - Login</title>
 
     <!-- Custom fonts for this template-->
-    <!-- <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
- -->
+
     <!-- Custom styles for this template-->
-   <!--  <link href="css/sb-admin-2.min.css" rel="stylesheet"> -->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
     <link href="css/css-login.css" rel="stylesheet">
 
 
 </head>
-<body class="align">
+<body>
+   <div class="container">
+
+    <br><br><br><br><br><br><br><br><br>
+        <!-- Outer Row -->
+        <div class="row justify-content-center">
+
+            <div class="col-xl-5 col-lg-12 col-md-10">
+
+                <div class="card o-hidden border-0 shadow-lg my-5">
+
+  <div class="card-body p-5">
+
+     <div class="row">
+      <div class="col-lg-12">
 
   <div class="grid">
 
-    <form action="login.php" method="POST" class="form login">
+    <h1 style="color: #4e73df; margin-bottom: 0px;">Welcome back</h1>
+    <h6 style="margin-top: 0px; color: #7491E6;;">Welcome back! Please enter you details.</h6>
+
+    <form action="login.php" method="POST" class="form login" style="margin-top: 30px;">
 
       <div class="form__field">
-        <label for="login__username"><svg class="icon">
+        <label for="login__username" style="margin-bottom: -0.5px;"><svg class="icon">
             <use xlink:href="#icon-user"></use>
           </svg><span class="hidden">Username</span></label>
-        <input autocomplete="username" id="login__username" type="text" name="username" class="form__input" placeholder="Username" required>
+        <input autocomplete="username" id="login__username" type="text" name="username" class="form__input" placeholder="Enter your username" required>
       </div>
 
       <div class="form__field">
-        <label for="login__password"><svg class="icon">
+        <label for="login__password" style="margin-bottom: -0.5px;"><svg class="icon">
             <use xlink:href="#icon-lock"></use>
           </svg><span class="hidden">Password</span></label>
-        <input id="login__password" type="password" name="password" class="form__input" placeholder="Password" required>
+        <input id="login__password" type="password" name="password" class="form__input" placeholder="Enter your password" required>
       </div>
 
       <div class="form__field">
@@ -59,6 +76,14 @@
       </svg></p> -->
 
   </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
 
   <svg xmlns="http://www.w3.org/2000/svg" class="icons">
     <symbol id="icon-arrow-right" viewBox="0 0 1792 1792">
