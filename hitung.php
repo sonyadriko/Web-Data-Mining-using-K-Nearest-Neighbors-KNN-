@@ -74,7 +74,7 @@
                                 <div class="col-xl-4 col-lg-12 col-md-9">
                                     <div class="col-lg-12">
                                         <div class="p-5">
-                                            <form method="GET" action="#">
+                                            <form method="POST" action="hitung_hasil.php">
                                                 <table border="0" cellpadding="10" cellspacing="0">
                                                     <tr>
                                                         <td>Age : </td>
@@ -106,49 +106,15 @@
                                 </div>
                             </div>
 
-                            <div class="table-responsive">
-                                <!--<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>Nomor</th>
-                                            <th>Age</th>
-                                            <th>Year</th>
-                                            <th>Axillary</th>
-                                            <th>Survival Status</th>
-                                            <th>Euclidean</th>
-                                            <th>Ranking</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php
-                                            $nomor = 1;
+                            <?php
+                                if(isset($_POST['hitung'])){
+                                    $agedata = $_POST['inputage'];
+                                    $yeardata = $_POST['inputyear'];
+                                    $axillarydata = $_POST['inputaxillary'];
+                                    $kdata = $_POST['inputk'];
+                                }
+                            ?>
 
-                                            $get_data = mysqli_query($conn, "select * from data_training");
-
-                                            while ($display=mysqli_fetch_array($get_data)) {
-                                                // code...
-                                                $id_datatraining = $display['id_datatraining'];
-                                                $age = $display['age'];
-                                                $year = $display['year'];
-                                                $axillary = $display['axillary'];
-                                                $survival_status = $display['survival_status'];
-                                            
-                                        ?>
-                                        <tr>
-                                            <td><?php echo $nomor ?></td>
-                                            <td><?php echo $age ?></td>
-                                            <td><?php echo $year ?></td>
-                                            <td><?php echo $axillary ?></td>
-                                            <td><?php echo $survival_status ?></td>
-                                            <td><?php sqrt(($age-41)^2+($year-65)^2+($axillary-0)^2) ?></td>
-                                        </tr>
-                                        <?php
-                                            $nomor++;
-                                            }
-                                        ?>
-                                    </tbody>
-                                </table>-->
-                            </div>
                         </div>
                     </div>
 
@@ -159,13 +125,7 @@
             <!-- End of Main Content -->
 
             <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
-                    </div>
-                </div>
-            </footer>
+            <?php include 'footer.php' ?>
             <!-- End of Footer -->
 
         </div>

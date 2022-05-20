@@ -47,7 +47,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="tables_proses.php">
+                <a class="nav-link" href="hitung.php">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Hitung KNN</span></a>
             </li>

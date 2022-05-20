@@ -1,6 +1,7 @@
 <?php
     include 'koneksi.php';
-   
+    
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,7 +41,7 @@
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Submit Data Testing</h1>
                             </div>
-                            <form method="GET" action="#">
+                            <form method="POST" action="charts_hasil.php">
                                 <div class="form-group">
                                     <input type="number" name="inputage" class="form-control form-control-user" id="exampleAge"
                                         placeholder="Age">
@@ -58,197 +59,76 @@
                                 </div>
                                 <br>
 
-                               <input type="submit" class="btn btn-primary btn-user btn-block" name="hitung" value="Hitung">
+                               <input type="submit" class="btn btn-primary btn-user btn-block" id="btn01" name="hitung" value="Hitung">
                                 <br>
                                 
                             </form>
-
-                            
-
-                           
-       
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-                                <?php
+                               <?php
 
-                                    if (isset($_POST['hitung'])) {
-                                        // code...
-                                         class Euc{
-                                                public $id_datatraining, $age, $year, $axillary, $survival_status;
-                                                public $eucledian;
-                                                public $rank;
-                                            }
+    if (isset($_POST['hitung'])) {
+
+        $age = $_POST['inputage'];
+        $year = $_POST['inputyear'];
+        $axillary = $_POST['inputaxillary'];
+        $parak = $_POST['inputk'];
+
+                                        
                                     
-                           
+                        //    class Euc{
+                        //                         public $id_datatraining, $age, $year, $axillary, $survival_status;
+                        //                         public $eucledian;
+                        //                         public $rank;
+                        //                     }
                             
 
-                                            $get_data = mysqli_query($conn, "select * from data_training");
+                        //                     $get_data = mysqli_query($conn, "select * from data_training");
 
-                                            $rank = 0;
-                                            $last_score = false;
-                                            $rows = 0;
-                                            $array22=array();
-                                            $i = 0;
+                        //                     $rank = 0;
+                        //                     $last_score = false;
+                        //                     $rows = 0;
+                        //                     $array22=array();
+                        //                     $i = 0;
 
-                                            while ($display=mysqli_fetch_array($get_data)) {
-                                                // code...
-                                                $id_datatraining = $display['id_datatraining'];
-                                                $age = $display['age'];
-                                                $year = $display['year'];
-                                                $axillary = $display['axillary'];
-                                                $survival_status = $display['survival_status'];
-                                                $a = $age-$_GET['inputage'];
-                                                $a2 = pow($a,2);
-                                                $b = $year-$_GET['inputyear'];
-                                                $b2 = pow($b,2);
-                                                $c = $axillary-$_GET['inputaxillary'];
-                                                $c2 = pow($c,2);
-                                                $output = sqrt($a2+$b2+$c2);
-                                                $eucli = new Euc();
-                                                $eucli->id_datatraining = $id_datatraining;
-                                                $eucli->age = $age;
-                                                $eucli->year = $year;
-                                                $eucli->axillary = $axillary;
-                                                $eucli->survival_status = $survival_status;
-                                                $eucli->euclidean = $output;
-                                                $array22[$i] = $eucli;
-                                                $i++;
-
-                                            }
-                            ?>
-                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" id="table01" >
-                                    <thead>
-                                        <tr>
-                                            <th>Nomor</th>
-                                            <th>Age</th>
-                                            <th>Year</th>
-                                            <th>Axillary</th>
-                                            <th>Survival Status</th>
-                                            <th>Euclidean</th>
-                                            <th>Ranking</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php
-                                    
-
-                                           
-
-                                            usort($array22, function($a, $b)
-                                            {
-                                                return $a->euclidean > $b->euclidean;
-                                            });
-
-
-                                            function comparator($object1, $object2){
-                                                return $object1->euclidean > $object2->euclidean;
-                                            }
-
-
-
-                                            for ($i=0; $i < sizeOf($array22); $i++) {
-
-                                                $data = $array22[$i];
-                                                $data->rank = 1+$i;
-                                        ?>
-
-                                        <tr>
-                                            <td><?php echo $data->id_datatraining ?></td>
-                                            <td><?php echo $data->age ?></td>
-                                            <td><?php echo $data->year ?></td>
-                                            <td><?php echo $data->axillary ?></td>
-                                            <td><?php if ($data->survival_status == 1) {
-                                                echo "Survived 5 Years or Longer";
-                                            }else if($data->survival_status == 2) {
-                                                echo "Died within 5 Years";
-                                            } ?></td>
-                                            <td><?php echo $data->euclidean ?></td>
-                                            <td><?php echo $data->rank ?></td>
-                                        </tr>
-                                        <?php
+                        //                     while ($display=mysqli_fetch_array($get_data)) {
+                        //                         // code...
+                        //                         $id_datatraining = $display['id_datatraining'];
+                        //                         $age = $display['age'];
+                        //                         $year = $display['year'];
+                        //                         $axillary = $display['axillary'];
+                        //                         $survival_status = $display['survival_status'];
+                        //                         $a = $age-$_GET['inputage'];
+                        //                         $a2 = pow($a,2);
+                        //                         $b = $year-$_GET['inputyear'];
+                        //                         $b2 = pow($b,2);
+                        //                         $c = $axillary-$_GET['inputaxillary'];
+                        //                         $c2 = pow($c,2);
+                        //                         $output = sqrt($a2+$b2+$c2);
+                        //                         $eucli = new Euc();
+                        //                         $eucli->id_datatraining = $id_datatraining;
+                        //                         $eucli->age = $age;
+                        //                         $eucli->year = $year;
+                        //                         $eucli->axillary = $axillary;
+                        //                         $eucli->survival_status = $survival_status;
+                        //                         $eucli->euclidean = $output;
+                        //                         $array22[$i] = $eucli;
+                        //                         $i++;
 
                                             }
+                                      
+
+                               ?>
+                           
                                         ?>
-                                    </tbody>
-                                </table>
-
-                                <div>
-                                    
-                                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                        <thead>
-                                            <tr>
-                                                <th>Nomor</th>
-                                                <th>Age</th>
-                                                <th>Year</th>
-                                                <th>Axillary</th>
-                                                <th>Survival Status</th>
-                                                <th>Euclidean</th>
-                                                <th>Ranking</th>
-                                            </tr>
-                                        </thead>
-                                        <?php
-                                    
-                                    
-                                    for($i=0; $i<$_GET['inputk']; $i++){
-                                        $data = $array22[$i];
-                                        $data->rank = 1+$i;
-                                        
-                                     ?>
-                                        <tbody>
-                                            <tr>
-                                            <td><?php echo $data->id_datatraining ?></td>
-                                            <td><?php echo $data->age ?></td>
-                                            <td><?php echo $data->year ?></td>
-                                            <td><?php echo $data->axillary ?></td>
-                                            <td><?php if ($data->survival_status == 1) {
-                                                echo "Survived 5 Years or Longer";
-                                            }else if($data->survival_status == 2) {
-                                                echo "Died within 5 Years";
-                                            } ?></td>
-                                            <td><?php echo $data->euclidean ?></td>
-                                            <td><?php echo $data->rank ?></td>
-                                            </tr>
-                                            <?php 
-                                        }
-                                        $arrayTelu = array_slice($array22, 0, $_GET['inputk']);
-                                        $mati = array_filter($arrayTelu, function ($arrayItem) { 
-                                        return $arrayItem->survival_status == 2;
-                                        });
-                                        $urip = array_filter($arrayTelu, function ($arrayItem) { 
-                                        return $arrayItem->survival_status == 1;
-                                        });
- 
-                                     ?>
-                                        </tbody>
-                                    </table>
-
-
-
-                                     
-
-                                     <p>Mati = <?php  echo sizeof($mati);
-                                      ?></p>
-                                      <p>Urip = <?php  echo sizeof($urip);
-                                      ?></p>
-
-                                      <?php
-                                        echo "Berdasarkan perhitungan, dengan age = ".$_GET['inputage'].", year = ".$_GET['inputyear'].", axillary = ".$_GET['inputaxillary'].", parameter K = ".$_GET['inputk'].", maka hasilnya: ";
-                                      if (sizeof($mati) > sizeof($urip)) {
-                                          // code...
-                                        echo "<b>Maka Hasilnya Died within 5 Years</b>";
-                                      }else {
-                                        echo "<b>Maka Hasilnya Survived 5 Years or Longer</b>";
-                                      }
-}
-                                        ?>
-                                </div>
+                                <!-- </div>
                          
                      
 
-    </div>
+    </div> -->
 
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
@@ -260,11 +140,13 @@
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
 
-<!--     <script>
-                                document.getElementById("btn01").addEventListener("click", function(){
-                                    document.getElementById("table01").style.display = "block";
+    <script>
+                             document.getElementById("btn01").addEventListener("click", function(){
+                                    let a = document.getElementById("dataTable") || "null"
+
+                                    a.style.display = "block";
                                 });
-                            </script> -->
+                            </script>
 
 </body>
 
