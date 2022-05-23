@@ -104,7 +104,7 @@
                                                     </tr>
                                                     <tr>
                                                         <td><a href="data_training.php" style="text-decoration: none; list-style: none;"><input type="button" class="btn btn-primary btn-user btn-block" name="back" value="Back"></a></td>
-                                                        <td><input type="submit" class="btn btn-primary btn-user btn-block" name="submit" value="Tambah"></td>
+                                                        <td><input type="submit" class="btn btn-primary btn-user btn-block" name="submit" value="Submit"></td>
                                                     </tr>
                                                 </table>
                                                
