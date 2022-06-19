@@ -76,21 +76,33 @@
                                         <div class="p-5">
                                             <form method="POST" action="tambah_data_training.php">
                                                 <table border="0" cellpadding="10" cellspacing="0">
-                                                    <tr>
-                                                        <td>Age : </td>
-                                                        <td><input type="number" name="inputage" class="form-control form-control-user" id="exampleAge" style="-moz-appearance: textfield; " required></td>
+                                                <tr>
+                                                        <td>Brand : </td>
+                                                        <td><input type="number" name="inputbrand" class="form-control form-control-user" id="exampleAge" style="-moz-appearance: textfield; " required></td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Year : </td>
-                                                        <td><input type="number" name="inputyear" class="form-control form-control-user" id="exampleYear" style="-moz-appearance: textfield;" required></td>
+                                                        <td>Jenis : </td>
+                                                        <td><input type="number" name="inputjenis" class="form-control form-control-user" id="exampleYear" style="-moz-appearance: textfield;" required></td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Axillary : </td>
-                                                        <td><input type="number" name="inputaxillary" class="form-control form-control-user" id="exampleAxillary" style="-moz-appearance: textfield; " required></td>
+                                                        <td>Bahan : </td>
+                                                        <td><input type="number" name="inputbahan" class="form-control form-control-user" id="exampleAxillary" style="-moz-appearance: textfield; " required></td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Survival Status : </td> 
-                                                        <td><input type="number" name="inputsurv" class="form-control form-control-user" id="exampleK" style="-moz-appearance: textfield; " required></td>
+                                                        <td>Harga : </td>
+                                                        <td><input type="number" name="inputharga" class="form-control form-control-user" id="exampleAxillary" style="-moz-appearance: textfield; " required></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Bintang : </td>
+                                                        <td><input type="number" step="0.01" name="inputbintang" class="form-control form-control-user" id="exampleAxillary" style="-moz-appearance: textfield; " required></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Terjual : </td>
+                                                        <td><input type="number" name="inputterjual" class="form-control form-control-user" id="exampleAxillary" style="-moz-appearance: textfield; " required></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Penjualan : </td>
+                                                        <td><input type="number" name="inputpenjualan" class="form-control form-control-user" id="exampleAxillary" style="-moz-appearance: textfield; " required></td>
                                                     </tr>
                                                     <tr>
                                                         <td><a href="data_training.php" style="text-decoration: none; list-style: none;"><input type="button" class="btn btn-primary btn-user btn-block" name="back" value="Back"></a></td>
@@ -157,12 +169,15 @@
 <?php
         if (isset($_POST['submit'])) {
             // code...
-            $age = $_POST['inputage'];
-            $year = $_POST['inputyear'];
-            $axillary = $_POST['inputaxillary'];
-            $survival_status = $_POST['inputsurv'];
+            $brand = $_POST['inputbrand'];
+            $jenis = $_POST['inputjenis'];
+            $bahan = $_POST['inputbahan'];
+            $harga = $_POST['inputharga'];
+            $bintang = $_POST['inputbintang'];
+            $terjual = $_POST['inputterjual'];
+            $penjualan = $_POST['inputpenjualan'];
 
-            $insertData = "INSERT INTO data_training (`id_datatraining`, `age`, `year`, `axillary`, `survival_status`) VALUES (NULL, '$age', '$year', '$axillary', '$survival_status')";
+            $insertData = "INSERT INTO data_training (`id_data`, `brand`, `jenis`, `bahan`, `harga`, `bintang`, `terjual`, `penjualan`) VALUES (NULL, '$brand', '$jenis', '$bahan', '$harga', '$bintang', '$terjual', '$penjualan')";
             $insertResult = mysqli_query($conn, $insertData);
 
             if ($insertResult) {

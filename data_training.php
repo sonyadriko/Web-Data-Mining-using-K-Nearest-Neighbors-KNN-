@@ -111,10 +111,13 @@
                                     <thead>
                                         <tr>
                                             <th>Nomor</th>
-                                            <th>Age</th>
-                                            <th>Year</th>
-                                            <th>Axillary</th>
-                                            <th>Survival Status</th>
+                                            <th>Brand</th>
+                                            <th>Jenis</th>
+                                            <th>Bahan</th>
+                                            <th>Harga</th>
+                                            <th>Bintang</th>
+                                            <th>Terjual</th>
+                                            <th>Penjualan</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -126,43 +129,27 @@
 
                                          while ($display=mysqli_fetch_array($get_data)) {
                                                 // code...
-                                                $id_datatraining = $display['id_datatraining'];
-                                                $age = $display['age'];
-                                                $year = $display['year'];
-                                                $axillary = $display['axillary'];
-                                                $survival_status = $display['survival_status'];
-                                    
-
-                                           
-
-                                            // usort($array22, function($a, $b)
-                                            // {
-                                            //     return $a->euclidean > $b->euclidean;
-                                            // });
-
-
-                                            // function comparator($object1, $object2){
-                                            //     return $object1->euclidean > $object2->euclidean;
-                                            // }
-
-
-
-                                            // for ($i=0; $i < sizeOf($array22); $i++) {
-
-                                            //     $data = $array22[$i];
-                                            //     $data->rank = 1+$i;
+                                                $id_datatraining = $display['id_data'];
+                                                $brand = $display['brand'];
+                                                $jenis = $display['jenis'];
+                                                $bahan = $display['bahan'];
+                                                $harga = $display['harga'];
+                                                $bintang = $display['bintang'];
+                                                $terjual = $display['terjual'];
+                                                $penjualan = $display['penjualan'];
+                                   
                                         ?>
 
                                         <tr>
                                             <td><?php echo $nomor ?></td>
-                                            <td><?php echo $age ?></td>
-                                            <td><?php echo $year ?></td>
-                                            <td><?php echo $axillary ?></td>
-                                            <td><?php if ($survival_status == 1) {
-                                                echo "Survived 5 Years or Longer";
-                                            }else if($survival_status == 2) {
-                                                echo "Died within 5 Years";
-                                            } ?></td>
+                                            <td><?php echo $brand ?></td>
+                                            <td><?php echo $jenis ?></td>
+                                            <td><?php echo $bahan ?></td>
+                                            <td><?php echo "Rp ". number_format($harga,0,",",".") ?></td>
+                                            <td><?php echo $bintang ?></td>
+                                            <td><?php echo $terjual ?></td>
+                                            <td><?php echo $penjualan ?></td>
+                                            
                                             <td>
                                                 <a href='edit_data_training.php?GetID=<?php echo $id_datatraining ?>' style="text-decoration: none; list-style: none;"><input type='submit' value='Edit' id='editbtn' class="btn btn-primary btn-user" ></a>
                                                 <a href='delete_data_training.php?Del=<?php echo $id_datatraining ?>' style="text-decoration: none; list-style: none;"><input type='submit' value='Delete' id='delbtn' class="btn btn-primary btn-user" ></a>

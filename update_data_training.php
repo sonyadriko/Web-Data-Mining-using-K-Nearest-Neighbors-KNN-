@@ -3,12 +3,15 @@
 	include 'koneksi.php';
 
 	$id_datatraining = $_GET['id'];
-	$age = $_POST['inputage'];
-	$year = $_POST['inputyear'];
-	$axillary = $_POST['inputaxillary'];
-	$survival_status = $_POST['inputsurv'];
+	$brand = $_POST['inputbrand'];
+	$jenis = $_POST['inputjenis'];
+	$bahan = $_POST['inputbahan'];
+	$harga = $_POST['inputharga'];
+	$bintang = $_POST['inputbintang'];
+	$terjual = $_POST['inputterjual'];
+	$penjualan = $_POST['inputpenjualan'];
 
-	$query = "UPDATE data_training set age = '".$age."', year = '".$year."', axillary = '".$axillary."', survival_status = '".$survival_status."' where id_datatraining = '".$id_datatraining."'";
+	$query = "UPDATE data_training set brand = '".$brand."', jenis = '".$jenis."', bahan = '".$bahan."', harga = '".$harga."', bintang = '".$bintang."',  terjual = '".$terjual."', penjualan = '".$penjualan."' where id_data = '".$id_datatraining."'";
 	$result = mysqli_query($conn,$query);
 
 	if ($result) {

@@ -85,16 +85,28 @@
                                             <form method="GET" action="hitung.php">
                                                 <table border="0" cellpadding="10" cellspacing="0">
                                                     <tr>
-                                                        <td>Age : </td>
-                                                        <td><input type="number" name="inputage" class="form-control form-control-user" id="exampleAge" style="-moz-appearance: textfield; " required></td>
+                                                        <td>Brand : </td>
+                                                        <td><input type="number" name="inputbrand" class="form-control form-control-user" id="exampleAge" style="-moz-appearance: textfield; " required></td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Year : </td>
-                                                        <td><input type="number" name="inputyear" class="form-control form-control-user" id="exampleYear" style="-moz-appearance: textfield;" required></td>
+                                                        <td>Jenis : </td>
+                                                        <td><input type="number" name="inputjenis" class="form-control form-control-user" id="exampleYear" style="-moz-appearance: textfield;" required></td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Axillary : </td>
-                                                        <td><input type="number" name="inputaxillary" class="form-control form-control-user" id="exampleAxillary" style="-moz-appearance: textfield; " required></td>
+                                                        <td>Bahan : </td>
+                                                        <td><input type="number" name="inputbahan" class="form-control form-control-user" id="exampleAxillary" style="-moz-appearance: textfield; " required></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Harga : </td>
+                                                        <td><input type="number" name="inputharga" class="form-control form-control-user" id="exampleAxillary" style="-moz-appearance: textfield; " required></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Bintang : </td>
+                                                        <td><input type="number" step="0.01" name="inputbintang" class="form-control form-control-user" id="exampleAxillary" style="-moz-appearance: textfield; " required></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Terjual : </td>
+                                                        <td><input type="number" name="inputterjual" class="form-control form-control-user" id="exampleAxillary" style="-moz-appearance: textfield; " required></td>
                                                     </tr>
                                                     <tr>
                                                         <td>Parameter K : </td>
@@ -118,20 +130,20 @@
 
                             <?php
                                 if(isset($_GET['hitung'])){
-                                    $agedata = $_GET['inputage'];
-                                    $yeardata = $_GET['inputyear'];
-                                    $axillarydata = $_GET['inputaxillary'];
+                                    $branddata = $_GET['inputbrand'];
+                                    $jenisdata = $_GET['inputjenis'];
+                                    $bahandata = $_GET['inputbahan'];
+                                    $hargadata = $_GET['inputharga'];
+                                    $bintangdata = $_GET['inputbintang'];
+                                    $terjualdata = $_GET['inputterjual'];
                                     $kdata = $_GET['inputk'];
 
                                     class Euc{
-                                        public $id_datatraining, $age, $year, $axillary, $survival_status;
+                                        public $id_datatraining, $brand, $jenis, $bahan, $harga, $bintang, $terjual, $penjualan;
                                         public $eucledian;
                                         public $rank;
                                     }
-                            
-                  
-                    
-
+       
                                     $get_data = mysqli_query($conn, "select * from data_training");
 
                                     $rank = 0;
@@ -142,24 +154,36 @@
 
                                     while ($display=mysqli_fetch_array($get_data)) {
                                         // code...
-                                        $id_datatraining = $display['id_datatraining'];
-                                        $age = $display['age'];
-                                        $year = $display['year'];
-                                        $axillary = $display['axillary'];
-                                        $survival_status = $display['survival_status'];
-                                        $a = $age-$_GET['inputage'];
+                                        $id_data = $display['id_data'];
+                                        $brand = $display['brand'];
+                                        $jenis = $display['jenis'];
+                                        $bahan = $display['bahan'];
+                                        $harga = $display['harga'];
+                                        $bintang = $display['bintang'];
+                                        $terjual = $display['terjual'];
+                                        $penjualan = $display['penjualan'];
+                                        $a = $brand-$branddata;
                                         $a2 = pow($a,2);
-                                        $b = $year-$_GET['inputyear'];
+                                        $b = $jenis-$jenisdata;
                                         $b2 = pow($b,2);
-                                        $c = $axillary-$_GET['inputaxillary'];
+                                        $c = $bahan-$bahandata;
                                         $c2 = pow($c,2);
-                                        $output = sqrt($a2+$b2+$c2);
+                                        $d = $harga-$hargadata;
+                                        $d2 = pow($d,2);
+                                        $e = $bintang-$bintangdata;
+                                        $e2 = pow($e,2);
+                                        $f = $terjual-$terjualdata;
+                                        $f2 = pow($f,2);
+                                        $output = sqrt($a2+$b2+$c2+$d2+$e2+$f2);
                                         $eucli = new Euc();
-                                        $eucli->id_datatraining = $id_datatraining;
-                                        $eucli->age = $age;
-                                        $eucli->year = $year;
-                                        $eucli->axillary = $axillary;
-                                        $eucli->survival_status = $survival_status;
+                                        $eucli->id_datatraining = $id_data;
+                                        $eucli->brand = $brand;
+                                        $eucli->jenis = $jenis;
+                                        $eucli->bahan = $bahan;
+                                        $eucli->harga = $harga;
+                                        $eucli->bintang = $bintang;
+                                        $eucli->terjual = $terjual;
+                                        $eucli->penjualan = $penjualan;
                                         $eucli->euclidean = $output;
                                         $array22[$i] = $eucli;
                                         $i++;
@@ -182,10 +206,13 @@
                                     <thead>
                                         <tr>
                                             <th>Id</th>
-                                            <th>Age</th>
-                                            <th>Year</th>
-                                            <th>Axillary</th>
-                                            <th>Survival Status</th>
+                                            <th>Brand</th>
+                                            <th>Jenis</th>
+                                            <th>Bahan</th>
+                                            <th>Harga</th>
+                                            <th>Bintang</th>
+                                            <th>Terjual</th>
+                                            <th>Penjualan</th>
                                             <th>Euclidean</th>
                                             <th>Ranking</th>
                                         </tr>
@@ -213,13 +240,16 @@
 
                                         <tr>
                                             <td><?php echo $data->id_datatraining ?></td>
-                                            <td><?php echo $data->age ?></td>
-                                            <td><?php echo $data->year ?></td>
-                                            <td><?php echo $data->axillary ?></td>
-                                            <td><?php if ($data->survival_status == 1) {
-                                                echo "Survived 5 Years or Longer";
-                                            }else if($data->survival_status == 2) {
-                                                echo "Died within 5 Years";
+                                            <td><?php echo $data->brand ?></td>
+                                            <td><?php echo $data->jenis ?></td>
+                                            <td><?php echo $data->bahan ?></td>
+                                            <td><?php echo $data->harga ?></td>
+                                            <td><?php echo $data->bintang ?></td>
+                                            <td><?php echo $data->terjual ?></td>
+                                            <td><?php if ($data->penjualan == 1) {
+                                                echo "Rendah";
+                                            }else if($data->penjualan == 2) {
+                                                echo "Tinggi";
                                             } ?></td>
                                             <td><?php echo $data->euclidean ?></td>
                                             <td><?php echo $data->rank ?></td>
@@ -237,13 +267,16 @@
                                     <table class="table table-bordered" id="2" width="100%" cellspacing="0">
                                        <thead>
                                            <tr>
-                                               <th>Id</th>
-                                               <th>Age</th>
-                                               <th>Year</th>
-                                               <th>Axillary</th>
-                                               <th>Survival Status</th>
-                                               <th>Euclidean</th>
-                                               <th>Ranking</th>
+                                                <th>Id</th>
+                                                <th>Brand</th>
+                                                <th>Jenis</th>
+                                                <th>Bahan</th>
+                                                <th>Harga</th>
+                                                <th>Bintang</th>
+                                                <th>Terjual</th>
+                                                <th>Penjualan</th>
+                                                <th>Euclidean</th>
+                                                <th>Ranking</th>
                                            </tr>
                                        </thead>
                                        <?php
@@ -258,14 +291,17 @@
                                        <tbody>
                                            <tr>
                                            <td><?php echo $data->id_datatraining ?></td>
-                                           <td><?php echo $data->age ?></td>
-                                           <td><?php echo $data->year ?></td>
-                                           <td><?php echo $data->axillary ?></td>
-                                           <td><?php if ($data->survival_status == 1) {
-                                               echo "Survived 5 Years or Longer";
-                                           }else if($data->survival_status == 2) {
-                                               echo "Died within 5 Years";
-                                           } ?></td>
+                                            <td><?php echo $data->brand ?></td>
+                                            <td><?php echo $data->jenis ?></td>
+                                            <td><?php echo $data->bahan ?></td>
+                                            <td><?php echo $data->harga ?></td>
+                                            <td><?php echo $data->bintang ?></td>
+                                            <td><?php echo $data->terjual ?></td>
+                                            <td><?php if ($data->penjualan == 1) {
+                                                echo "Rendah";
+                                            }else if($data->penjualan == 2) {
+                                                echo "Tinggi";
+                                            } ?></td>
                                            <td><?php echo $data->euclidean ?></td>
                                            <td><?php echo $data->rank ?></td>
                                            </tr>
@@ -275,13 +311,13 @@
                                        //mengambil data dengan total sesuai K yang diinput
                                        $arrayTelu = array_slice($array22, 0, $kdata);
 
-                                       //jika meninggal dalam 5 tahun
-                                       $mati = array_filter($arrayTelu, function ($arrayItem) { 
-                                       return $arrayItem->survival_status == 2;
+                                       //jika Tinggi
+                                       $tinggi = array_filter($arrayTelu, function ($arrayItem) { 
+                                       return $arrayItem->penjualan == 2;
                                        });
-                                       //jika hidup lebih dari 5 tahun
-                                       $hidup = array_filter($arrayTelu, function ($arrayItem) { 
-                                       return $arrayItem->survival_status == 1;
+                                       //jika Rendah
+                                       $rendah = array_filter($arrayTelu, function ($arrayItem) { 
+                                       return $arrayItem->penjualan == 1;
                                        });
 
                                     ?>
@@ -297,25 +333,25 @@
                                        </thead>
                                        <tbody>
                                            <tr>
-                                               <td>Survived 5 Years or Longer</td>
-                                               <td><?php echo sizeof($hidup);?></td>
+                                               <td>Tinggi</td>
+                                               <td><?php echo sizeof($tinggi);?></td>
                                             </tr>
                                             <tr>
-                                               <td>Died within 5 Years</td>
-                                               <td><?php  echo sizeof($mati);?></td>
+                                               <td>Rendah</td>
+                                               <td><?php  echo sizeof($rendah);?></td>
                                             </tr>
                                     </tbody>
                                     </table>
 
 
                                      <?php
-                                       echo "Berdasarkan perhitungan, dengan age = ".$agedata.", year = ".$yeardata.", axillary = ".$axillarydata.", parameter K = ".$kdata.", maka hasilnya: ";
-                                     if (sizeof($mati) > sizeof($hidup)) {
+                                       echo "Berdasarkan perhitungan, dengan brand = ".$branddata.", jenis = ".$jenisdata.", bahan = ".$bahandata.", harga = " .$hargadata.", bintang = " .$bintangdata.", terjual = " .$terjualdata.", parameter K = ".$kdata.", maka hasilnya: ";
+                                     if (sizeof($rendah) > sizeof($tinggi)) {
                                          // code...
-                                       echo "<b>Maka Hasilnya Died within 5 Years</b>";
-                                     }else if (sizeof($hidup) > sizeof($mati)) {
+                                       echo "<b>Rendah</b>";
+                                     }else if (sizeof($tinggi) > sizeof($rendah)) {
                                          // code...
-                                        echo "<b>Maka Hasilnya Survived 5 Years or Longer</b>";
+                                        echo "<b>Tinggi</b>";
                                      }else{
                                        echo "<b>Maka Hasilnya Sama, perhitungan harus diulang dengan K harus ganjil</b>";
                                      }

@@ -8,12 +8,15 @@
 
     $id_datatraining = $_GET['GetID'];
 
-    $query = mysqli_query($conn, "SELECT * FROM data_training WHERE id_datatraining = '".$id_datatraining."'");
+    $query = mysqli_query($conn, "SELECT * FROM data_training WHERE id_data = '".$id_datatraining."'");
     while($row = mysqli_fetch_assoc($query)){
-        $age = $row['age'];
-        $year = $row['year'];
-        $axillary = $row['axillary'];
-        $survival_status = $row['survival_status'];
+        $brand = $row['brand'];
+        $jenis = $row['jenis'];
+        $bahan = $row['bahan'];
+        $harga = $row['harga'];
+        $bintang = $row['bintang'];
+        $terjual = $row['terjual'];
+        $penjualan = $row['penjualan'];
     }
 
 ?>
@@ -87,20 +90,32 @@
                                             <form method="POST" action="update_data_training.php?id=<?php echo $id_datatraining ?>">
                                                 <table border="0" cellpadding="10" cellspacing="0">
                                                     <tr>
-                                                        <td>Age : </td>
-                                                        <td><input type="number" name="inputage" class="form-control form-control-user" id="exampleAge" value="<?php echo $age ?>" style="-moz-appearance: textfield; " required></td>
+                                                        <td>Brand : </td>
+                                                        <td><input type="number" name="inputbrand" class="form-control form-control-user" id="exampleAge" value="<?php echo $brand ?>" style="-moz-appearance: textfield; " required></td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Year : </td>
-                                                        <td><input type="number" name="inputyear" class="form-control form-control-user" id="exampleYear" value="<?php echo $year ?>" style="-moz-appearance: textfield;" required></td>
+                                                        <td>Jenis : </td>
+                                                        <td><input type="number" name="inputjenis" class="form-control form-control-user" id="exampleYear" value="<?php echo $jenis ?>" style="-moz-appearance: textfield;" required></td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Axillary : </td>
-                                                        <td><input type="number" name="inputaxillary" class="form-control form-control-user" id="exampleAxillary" value="<?php echo $axillary ?>" style="-moz-appearance: textfield; " required></td>
+                                                        <td>Bahan : </td>
+                                                        <td><input type="number" name="inputbahan" class="form-control form-control-user" id="exampleAxillary" value="<?php echo $bahan ?>" style="-moz-appearance: textfield; " required></td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Survival Status : </td> 
-                                                        <td><input type="number" name="inputsurv" class="form-control form-control-user" id="exampleK" value="<?php echo $survival_status ?>" style="-moz-appearance: textfield; " required></td>
+                                                        <td>Harga : </td> 
+                                                        <td><input type="number" name="inputharga" class="form-control form-control-user" id="exampleK" value="<?php echo $harga ?>" style="-moz-appearance: textfield; " required></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Bintang : </td> 
+                                                        <td><input type="number"  step="0.01" name="inputbintang" class="form-control form-control-user" id="exampleK" value="<?php echo $bintang ?>" style="-moz-appearance: textfield; " required></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Terjual : </td> 
+                                                        <td><input type="number" name="inputterjual" class="form-control form-control-user" id="exampleK" value="<?php echo $terjual ?>" style="-moz-appearance: textfield; " required></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Penjualan : </td> 
+                                                        <td><input type="number" name="inputpenjualan" class="form-control form-control-user" id="exampleK" value="<?php echo $penjualan ?>" style="-moz-appearance: textfield; " required></td>
                                                     </tr>
                                                     <tr>
                                                         <td><a href="data_training.php" style="text-decoration: none; list-style: none;"><input type="button" class="btn btn-primary btn-user btn-block" name="back" value="Back"></a></td>
@@ -164,24 +179,3 @@
 
 </html>
 
-<?php
-        if (isset($_POST['submit'])) {
-            // code...
-            $age = $_POST['inputage'];
-            $year = $_POST['inputyear'];
-            $axillary = $_POST['inputaxillary'];
-            $survival_status = $_POST['inputsurv'];
-
-            $insertData = "INSERT INTO data_training (`id_datatraining`, `age`, `year`, `axillary`, `survival_status`) VALUES (NULL, '$age', '$year', '$axillary', '$survival_status')";
-            $insertResult = mysqli_query($conn, $insertData);
-
-            if ($insertResult) {
-                // code...
-                echo "<script>alert('Berhasil menambah data training.')</script>";
-                // header("Location:index.php");
-            }else {
-                var_dump($insertResult);
-
-            }
-        }
-?>

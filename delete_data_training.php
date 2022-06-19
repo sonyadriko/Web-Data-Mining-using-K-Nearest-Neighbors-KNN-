@@ -5,7 +5,7 @@
 	if (isset($_GET['Del'])) {
 		// code...
 		$id_datatraining = $_GET['Del'];
-		$query = "DELETE FROM data_training WHERE id_datatraining = '".$id_datatraining."'";
+		$query = "DELETE FROM data_training WHERE id_data = '".$id_datatraining."'";
 		$result = mysqli_query($conn, $query);
 
 		if ($result) {
