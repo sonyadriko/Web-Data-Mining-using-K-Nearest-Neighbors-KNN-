@@ -163,9 +163,9 @@
                                     </tbody>
                                 </table>
                                 <br>
-                                <p><b>Notes</b></p>
+                                <!-- <p><b>Notes</b></p>
                                 <p>Survived 5 Years or Longer = 1</p>
-                                <p>Died within 5 Years = 2</p>
+                                <p>Died within 5 Years = 2</p> -->
 
                               
                             </div>
