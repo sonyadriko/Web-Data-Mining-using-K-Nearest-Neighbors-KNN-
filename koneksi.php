@@ -1,5 +1,5 @@
 <?php
 
-	$conn = mysqli_connect('localhost', 'root', '', 'data_mining');
+	$conn = mysqli_connect('localhost', 'root', '', 'hijab_data');
 
 ?>
