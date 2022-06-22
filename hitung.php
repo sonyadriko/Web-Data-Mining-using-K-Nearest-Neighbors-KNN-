@@ -36,6 +36,27 @@
         .inputage {
              list-style: none;
         }
+        th{
+           color : #000000;
+        }
+        td{
+           color : #000000;
+        }
+        p{
+           color : #000000;
+        }
+        #datatable{
+           color : #000000;
+        }
+        .dataTables_info {
+            color : #000000;
+        }
+        .dataTable_length {
+            color : #000000;
+
+        }
+ 
+
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
@@ -75,7 +96,7 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Data yang diketahui atau data testing</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Data testing</h6>
                         </div>
                         <div class="card-body">
                             <div class="row justify-content-center">

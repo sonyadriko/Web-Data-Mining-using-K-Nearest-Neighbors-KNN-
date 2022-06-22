@@ -68,6 +68,28 @@
     <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
+    <style>
+        th{
+           color : #000000;
+        }
+        td{
+           color : #000000;
+        }
+        p{
+           color : #000000;
+        }
+        #datatable{
+           color : #000000;
+        }
+        .dataTables_info {
+            color : #000000;
+        }
+        .dataTable_length {
+            color : #000000;
+
+        }
+    </style>
+
 </head>
 
 <body id="page-top">
@@ -148,7 +170,11 @@
                                             <td><?php echo "Rp ". number_format($harga,0,",",".") ?></td>
                                             <td><?php echo $bintang ?></td>
                                             <td><?php echo $terjual ?></td>
-                                            <td><?php echo $penjualan ?></td>
+                                            <td><?php if ($penjualan == 1) {
+                                                echo "Rendah";
+                                            }else if($penjualan == 2) {
+                                                echo "Tinggi";
+                                            } ?></td>
                                             
                                             <td>
                                                 <a href='edit_data_training.php?GetID=<?php echo $id_datatraining ?>' style="text-decoration: none; list-style: none;"><input type='submit' value='Edit' id='editbtn' class="btn btn-primary btn-user" ></a>
@@ -163,9 +189,9 @@
                                     </tbody>
                                 </table>
                                 <br>
-                                <!-- <p><b>Notes</b></p>
-                                <p>Survived 5 Years or Longer = 1</p>
-                                <p>Died within 5 Years = 2</p> -->
+                                <p><b>Notes</b></p>
+                                <p>Rendah = 1</p>
+                                <p>Tinggi = 2</p>
 
                               
                             </div>
