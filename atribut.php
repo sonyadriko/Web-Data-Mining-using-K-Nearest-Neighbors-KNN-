@@ -64,6 +64,29 @@
     <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
+    <style>
+        th{
+           color : #000000;
+        }
+        td{
+           color : #000000;
+        }
+        p{
+           color : #000000;
+        }
+        #datatable{
+           color : #000000;
+        }
+        .dataTables_info {
+            color : #000000;
+        }
+        .dataTable_length {
+            color : #000000;
+
+        }
+    </style>
+
+
 </head>
 
 <body id="page-top">
