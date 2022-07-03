@@ -47,6 +47,12 @@
             </li>
 
             <li class="nav-item">
+                <a class="nav-link" href="data_testing.php">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Data Testing</span></a>
+            </li>
+
+            <li class="nav-item">
                 <a class="nav-link" href="hitung.php">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Hitung KNN</span></a>
