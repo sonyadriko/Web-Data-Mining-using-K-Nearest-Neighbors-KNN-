@@ -5,43 +5,6 @@
     if (!isset($_SESSION['user_id'])) {
         header("Location: login.php");
     }
-
-    // class Euc{
-    //                                             public $id_datatraining, $age, $year, $axillary, $survival_status;
-    //                                             public $eucledian;
-    //                                             public $rank;
-    //                                         }
-
-                                           
-
-                                            // $rank = 0;
-                                            // $last_score = false;
-                                            // $rows = 0;
-                                            // $array22=array();
-                                            // $i = 0;
-
-                                            // while ($display=mysqli_fetch_array($get_data)) {
-                                            //     // code...
-                                            //     $id_atribut = $display['id_atribut'];
-                                            //     $nama_atribut = $display['nama_atribut'];
-                                            //     $status_atribut = $display['status_atribut'];
-                                            //     $nilai = $display['nilai'];
-                                            //     $keterangan = $display['keterangan'];
-                                               
-                                                // $output = sqrt($a2+$b2+$c2);
-                                                // $eucli = new Euc();
-                                                // $eucli->id_datatraining = $id_datatraining;
-                                                // $eucli->age = $age;
-                                                // $eucli->year = $year;
-                                                // $eucli->axillary = $axillary;
-                                                // $eucli->survival_status = $survival_status;
-                                                // $eucli->euclidean = $output;
-                                                // $array22[$i] = $eucli;
-                                                // $i++;
-
-                                            //}
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -54,19 +17,19 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Data Training</title>
+    <title>Data Testing</title>
 
     <!-- Custom fonts for this template -->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="../asset/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="../asset/css/sb-admin-2.min.css" rel="stylesheet">
 
     <!-- Custom styles for this page -->
-    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link href="../asset/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
     <style>
         th{
@@ -120,8 +83,8 @@
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
                             <div class="d-sm-flex align-items-center justify-content-between">
-                            <h6 class="m-0 font-weight-bold text-primary">Data Training</h6>
-                            <a href="tambah_data_training.php" style="text-decoration: none; list-style: none;"><input type="button" class="btn btn-primary btn-user" name="adddata" value="Tambah Data"></a>
+                            <h6 class="m-0 font-weight-bold text-primary">Data Testing</h6>
+                            <!-- <a href="tambah_data_training.php" style="text-decoration: none; list-style: none;"><input type="button" class="btn btn-primary btn-user" name="adddata" value="Tambah Data"></a> -->
                               <!-- <a href="export_excel.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
 
@@ -140,25 +103,25 @@
                                             <th>Bintang</th>
                                             <th>Terjual</th>
                                             <th>Penjualan</th>
-                                            <th>Aksi</th>
+                                            <!-- <th>Aksi</th> -->
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php
 
                                         $nomor = 1;
-                                         $get_data = mysqli_query($conn, "select * from data_training");
+                                         $get_data = mysqli_query($conn, "select * from data_testing");
 
                                          while ($display=mysqli_fetch_array($get_data)) {
                                                 // code...
-                                                $id_datatraining = $display['id_data'];
-                                                $brand = $display['brand'];
-                                                $jenis = $display['jenis'];
-                                                $bahan = $display['bahan'];
-                                                $harga = $display['harga'];
-                                                $bintang = $display['bintang'];
-                                                $terjual = $display['terjual'];
-                                                $penjualan = $display['penjualan'];
+                                                $id_datatraining = $display['id_data_testing'];
+                                                $brand = $display['brand2'];
+                                                $jenis = $display['jenis2'];
+                                                $bahan = $display['bahan2'];
+                                                $harga = $display['harga2'];
+                                                $bintang = $display['bintang2'];
+                                                $terjual = $display['terjual2'];
+                                                $penjualan = $display['penjualan2'];
                                    
                                         ?>
 
@@ -176,11 +139,11 @@
                                                 echo "Tinggi";
                                             } ?></td>
                                             
-                                            <td>
+                                            <!-- <td>
                                                 <a href='edit_data_training.php?GetID=<?php echo $id_datatraining ?>' style="text-decoration: none; list-style: none;"><input type='submit' value='Edit' id='editbtn' class="btn btn-primary btn-user" ></a>
                                                 <a href='delete_data_training.php?Del=<?php echo $id_datatraining ?>' style="text-decoration: none; list-style: none;"><input type='submit' value='Delete' id='delbtn' class="btn btn-primary btn-user" ></a>
                                             </td>
-                                         
+                                          -->
                                         </tr>
                                         <?php
                                             $nomor++;
@@ -219,26 +182,9 @@
         <i class="fas fa-angle-up"></i>
     </a>
 
-    <?php
-        include 'logout_modal.php';
-    ?>
-
+    <?php include 'logout_modal.php';?>
     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
-
-    <!-- Page level plugins -->
-    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="js/demo/datatables-demo.js"></script>
+    <?php include 'import_js.php' ?>
 
 </body>
 
