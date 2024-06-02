@@ -9,7 +9,6 @@ User-Friendly Interface: Simple and intuitive web interface for performing data 
 <h2>Technologies Used</h2>
 PHP 8: Used for application logic and server-side processing.
 MySQL: Used for storing datasets and user information.
-Python: Used for implementing the KNN algorithm and data processing.
 HTML/CSS/JavaScript: Used for developing the user interface.
 Bootstrap: Used for responsive design and layout.
 <h2>Contribution</h2>
